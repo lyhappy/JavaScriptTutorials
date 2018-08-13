@@ -1,11 +1,17 @@
 # Objects in JavaScript
+# JavaScript中的对象
 ### What are Objects in JavaScript
+### 什么是JS中的对象
 
 >An object in JavaScript is a collection of key-value pairs. Each key-value pair is called as a property. 
+>JS中的对象是若干K-V对的集合,一个K-V对被称作对象的一个属性.
 >A property can be a function, an array, an object itself or any primitive data type i.e. integer, string, etc.
+>属性可以是一个函数, 一个数组, 对象自身或者基础数据类型(如: intger, string等).
 >Functions in object are called as methods. 
+>对象中的函数称作方法.
 
 >Consider a simple object:
+>来看看一个对象:
 
 ```javascript
 var human = {
@@ -18,7 +24,9 @@ var human = {
 }
 ```
 >Here firstName, lastName, and fullName are properties of the same object i.e. **human**.
+>这里`firstName`, `lastName`和`fullName`是同一个对象`human`的属性.
 >Every human will have these properties but their values may be different i.e. firstName, lastName may 
+>每个人都会有这些属性,但属性的值未必一样.
 >have different value for different human.
 
 ```javascript
