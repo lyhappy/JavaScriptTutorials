@@ -107,14 +107,16 @@ console.log(human[firstNameProperty]) // Output: Virat
 ```
 
 > **Note**: Above method of using variable to access property names cannot be used to access properties of the object using dot notation
-**注意**: 上述使用变量访问对象属性的方式不适用于点运算符
+
+>**注意**: 上述使用变量访问对象属性的方式不适用于点运算符
 
 ```javascript
 Console.log(human.firstNameProperty) //Output: undefined
 ```
 
 >**Note**: If we try to access the methods without using the **()**, output will be method definition as shown below: 
-**注意**: 访问方法时,如果忘记使用 **()** (函数调用运算符), 输出的将是方法定义(如下图所示):
+
+>**注意**: 访问方法时,如果忘记使用 **()** (函数调用运算符), 输出的将是方法定义(如下图所示):
 
 ```javascript
 console.log(human.fullName); //Output: function definition
@@ -124,6 +126,7 @@ console.log(human.fullName); //Output: function definition
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part1/CodeSnippets/accessMethodWithoutBrakcets.png)
 
 >An object property name can be any valid JavaScript string, or anything that can be converted to a string, including the empty string. However, any property name that is not a valid Javascript identifier (for example, a property name that has a space or a hyphen, or that starts with a number) can only be accessed and added to the object property using the square bracket notation
+
 对象属性名可以是任意合法的JS字符串,或任何可以转换为字符串的变量,包括空字符串.
 但是,属性名如果不是一个合法的JS标识符(如, 包含空格,连字符或以数字开始的字符串),则只能通过方括号运算符来访问和添加属性．
 
@@ -150,6 +153,7 @@ console.log(human[12]); //Output: 12
 ### 使用对象字面量
 
 > **human** object created above is an example of creating an object using object literal
+
 上面创建对象`human`的方式就是使用对象字面量
 
 ```javascript
@@ -171,6 +175,7 @@ console.log(human);// Creates an empty object
 ```
 
 > We can added as many properties as we want usign either the dot notation or the square bracket notation
+
 使用new运算符生成一个空对象，然后使用点运算符或方括号运算符来添加属性．
 
 ```javascript
@@ -240,10 +245,12 @@ console.log(sachinTendulkar);
 
 >To delete a property from an object we can use the ‘delete’ operator. You cannot delete properties that were inherited, nor can you 
 >delete properties with their attributes set to configurable.
+
 可以使用`delete`操作符来删除对象上的属性.不可删除继承而来的属性,带有`DontDelete`属性的属性也不能被删除.
 
 >***‘delete’*** operator returns true if the delete was successful. It also return true if the property to delete was non-existent or 
 >the property could not be deleted
+
 如果删除成功`delete`操作返回true, 如果要删除的属性不存在,或属性不可删除,同样返回true(很奇葩的设定)
 
 ```javascript
@@ -252,6 +259,7 @@ console.log(human);
 ```
 
 > Let's see what happens if we try to call fullName method which uses both the firstName and lastName property of human object
+
 在上述删除操作之后,再调用human的fullName方法,将会输出`undefined`,因为在fullName方法中试图访问了不存在的属性
 
 ```javascript
