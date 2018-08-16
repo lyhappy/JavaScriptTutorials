@@ -138,12 +138,105 @@ console.log(obj1.someValue)//Output: 20
 ```
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part5/CodeSnippets/constructorThis.jpg)
 
+> Here, we have defined ConstructorFunc to create new objects.
+> When `var obj1 = new ConstructorFunction(20)` is executed, value of this will be equal to the new object that is created.
+
+这里,我们定义了`ConstructorFunc`,并创建了一个对象.执行new语句时,this将指向新创建的对象.
+
+### in Immediately Invoked Function expression (IIFE)
+### 在立即执行函数中(IIFE)
+
+> In IIFE, value of this is always equal to Window object. Let’s see an example:
+
+在立即执行函数中,this始终指向window对象,看个例子:
+
+```JavaScript
+// IIFE outside any function 
+(function() {
+  console.log(this); // Output: Window object
+})()
 
 
+// IIFE inside an object function
+var obj = {};
 
+var someFunc = function() {
+  console.log("Functions this");
+  console.log(this === obj);
+  console.log('++++++++++++++++++++++++++');
+  
+  // IIFE 
+  (function() {
+    console.log("IIFE this");
+    console.log(this); // Output: Window object
+    console.log("IIFE");
+   })()
+};
 
+obj.func = someFunc;
 
+obj.func();
+```
 
+#### Console Output
+![](./CodeSnippets/IIFE_first.png)
 
+> In the first example, IIFE outside any function, value of this inside IIFE will be Window object.
 
+在第一个例子中,IIFF不在任何函数中,其中的this指向window对象.
 
+![](./CodeSnippets/IIFE_second.png)
+
+> In the second example, when we have called IIFE inside someFunc still the value of this is Window object not obj object.
+
+这一次,IIFE函数的定义位于`someFunc`中,this依然指向window对象.
+
+> This is because, value of this inside a function is equal to the object on which it is called.
+> someFunc is called on obj, hence value of this inside someFunc is obj.
+> But, IIFE is self invoked, it has not been called by any object. Hence, the value of this inside IIFE is Window object.
+
+这是因为函数中this的值由调用它的对象决定的.`someFunc`被`obj`调用,所以其中的this指向`obj`.
+而IIFE时自调用,它没有被任何对象调用.所以它的this指向window对象.
+
+### Event handler in JavaScript
+### 在事件回调中
+
+> Inside event handler, value of this is equal to the element on which the event is fired. Let’s see this with an example of click event.
+
+在事件回调中,`this`的值等于触发事件的元素对象.看个例子:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="divId">
+		Hello
+	</div>
+	<script type="text/javascript">
+		var id = document.getElementById('divId').addEventListener('click', clickMe, false);
+		function clickMe(event) {
+			console.log(event.currentTarget);
+			console.log("CLick Me");
+			console.log(this);
+		}
+	</script>
+</body>
+</html>
+```
+
+> In the above example, we have added an on click event handler on the div element which calls the clickMe function.
+
+上面这个例子中,`div`元素添加了click事件的监听,回调`clickMe`函数.
+
+![](./CodeSnippets/EventHandler.png)
+
+> When we click on the div, from the above console output we can see that value of this is equal to the div element which we clicked.
+
+当点击`div`时,从上面的控制台输出可以看出,this指向了点击的`div`元素.
+
+> We can change the value of this at run time using call, apply and bind function. We will discuss call, apply and bind in another article.
+
+this的值在运行时可以通过`call`,`apply`和`bind`函数改变.这将在其他文章里讨论.
