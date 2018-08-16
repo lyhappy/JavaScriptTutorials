@@ -1,5 +1,6 @@
 ## call() and apply()
 
+
 >The call() and apply() method calls a function with a given *this* value and arguments provided.
 >The fundamental difference between call() and apply() is call() accepts an argument list, while apply() accepts a single array of arguments.
 The first parameter in the call and apply methods set the this value to the object that the function is invoked upon
